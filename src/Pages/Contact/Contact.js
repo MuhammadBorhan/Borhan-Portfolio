@@ -10,7 +10,7 @@ const Contact = () => {
                         <div class="text-center lg:text-left">
                             <h1 class="text-2xl font-bold"></h1>
 
-                            <div class="flex flex-col w-full border-opacity-50">
+                            <div class="flex flex-col border-opacity-50 ml-0 md:ml-12">
                                 <div class="grid h-20 card rounded-box place-items-center">
                                     <h3>If you have any information please E-Mail me.</h3>
                                 </div>
