@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_40t3cbh', 'template_nej6xfe', form.current, '6et-Yqyy95kVOjeVJ')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+        e.target.reset();
+    };
     return (
         <div className='px-12 py-8 border-t-4' id='contact'>
             <h1 className='text-3xl font-bold font-sans text-center'>Contact Me</h1>
@@ -21,19 +35,19 @@ const Contact = () => {
                             </div>
                         </div>
                         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                            <form>
+                            <form ref={form} onSubmit={sendEmail}>
                                 <div class="card-body">
                                     <div class="form-control">
-                                        <input type="text" placeholder="Name" class="input input-bordered" />
+                                        <input type="text" name="user_name" placeholder="Name" class="input input-bordered" required />
                                     </div>
                                     <div class="form-control">
-                                        <input type="text" placeholder="Email" class="input input-bordered" />
+                                        <input type="email" name="user_email" placeholder="Email" class="input input-bordered" required />
                                     </div>
                                     <div class="form-control">
-                                        <textarea name="" id="" cols="30" rows="10" placeholder='Type Your Message' class="input input-bordered h-24"></textarea>
+                                        <textarea name="message" id="" cols="30" rows="10" placeholder='Type Your Message' class="input input-bordered h-24" required></textarea>
                                     </div>
                                     <div class="form-control mt-6">
-                                        <button type='submit' class="btn btn-primary">Send</button>
+                                        <input class="btn btn-primary" type="submit" value="Send" />
                                     </div>
                                 </div>
                             </form>
