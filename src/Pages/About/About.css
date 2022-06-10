@@ -1,0 +1,31 @@
+.about-img {
+    width: 200px;
+    height: 200px;
+}
+
+.abouts-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 5px 0px rgb(70, 146, 227);
+    border-radius: 50%;
+    height: 380px;
+    width: 380px;
+    margin-left: 100px;
+    /* background-color: black; */
+}
+
+.about-img {
+    height: 92%;
+    width: 92%;
+    background-image: url("../../images/borhan.JPG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.about-img:hover {
+    transform: scale(1.07);
+    transition: 0.4s ease-in-out;
+}
